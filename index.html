@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Expense Tracker</h1>
+        <form id="transactionForm">
+            <input type="text" id="description" placeholder="Description" required>
+            <input type="text" id="amount" placeholder="Amount" required> <!-- Changed to type="text" -->
+            <select id="category">
+                <option value="Food">Food</option>
+                <option value="Transport">Transport</option>
+                <option value="Shopping">Shopping</option>
+                <option value="Bills">Bills</option>
+                <option value="Other">Other</option>
+            </select>
+            <label><input type="radio" name="type" value="income" checked> Income</label>
+            <label><input type="radio" name="type" value="expense"> Expense</label>
+            <button type="submit">Add Transaction</button>
+        </form>
+
+        <h2>Transactions</h2>
+        <div id="filter">
+            <button onclick="filterTransactions('all')">All</button>
+            <button onclick="filterTransactions('income')">Income</button>
+            <button onclick="filterTransactions('expense')">Expenses</button>
+        </div>
+        <table id="transactionHistory">
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Amount</th>
+                    <th>Category</th>
+                    <th>Type</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <h2>Balance</h2>
+        <div id="balanceContainer">
+            <span id="balance"></span>
+        </div>
+
+        <!-- Delete All Transactions Button -->
+        <button id="deleteAll" onclick="deleteAllTransactions()">Delete All Transactions</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
